@@ -4,6 +4,7 @@ import si.fri.rso.storecatalog.lib.Store;
 import si.fri.rso.storecatalog.models.converters.StoreConverter;
 import si.fri.rso.storecatalog.models.entities.StoreEntity;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+@RequestScoped
 public class StoreBean {
 
     private Logger log = Logger.getLogger(StoreBean.class.getName());
