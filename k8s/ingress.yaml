@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: shopping-cart-ingress
+  name: store-catalog-ingress
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/use-regex: "true"
@@ -11,32 +11,10 @@ spec:
   rules:
     - http:
         paths:
-          - path: /hello-world-one(/|$)(.*)
+          - path: /store-catalog(/|$)(.*)
             pathType: Prefix
             backend:
               service:
-                name: aks-helloworld-one
-                port:
-                  number: 80
-          - path: /hello-world-two(/|$)(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: aks-helloworld-two
-                port:
-                  number: 80
-          - path: /shopping-cart(/|$)(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: shopping-cart
+                name: store-catalog
                 port:
                   number: 8080
-          - path: /(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: aks-helloworld-one
-                port:
-                  number: 80
-
