@@ -1,5 +1,5 @@
 kumuluzee:
-  name: shopping-cart-service
+  name: store-catalog-service
   env:
     name: dev
   version: 1.0.0
@@ -45,9 +45,9 @@ kumuluzee:
                             </Configuration>'
   dev:
     scan-libraries:
-      - shopping-cart-services
-      - shopping-cart-models
-      - shopping-cart-lib
+      - store-catalog-services
+      - store-catalog-models
+      - store-catalog-lib
 
 rest-properties:
   maintenance-mode: false
