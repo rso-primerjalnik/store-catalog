@@ -8,8 +8,8 @@ kumuluzee:
     http:
       port: 8080
   datasources:
-    - jndi-name: jdbc/ShoppingCartDS
-      connection-url: jdbc:postgresql://localhost:5432/shopping-cart
+    - jndi-name: jdbc/StoresDS
+      connection-url: jdbc:postgresql://localhost:5432/store-catalog
       username: dbuser
       password: postgres
       pool:
@@ -17,12 +17,12 @@ kumuluzee:
   health:
     checks:
       data-source-health-check:
-        jndi-name: jdbc/ShoppingCartDS
+        jndi-name: jdbc/StoresDS
         type: liveness
   metrics:
     web-instrumentation:
-      - name: shopping-cart-endpoint
-        url-pattern: /v1/shopping-cart/*
+      - name: store-catalog-endpoint
+        url-pattern: /v1/stores/*
   logs:
     config-file: '<?xml version="1.0" encoding="UTF-8"?>
                             <Configuration name="comments">
