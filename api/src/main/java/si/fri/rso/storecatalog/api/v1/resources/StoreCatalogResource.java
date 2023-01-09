@@ -1,5 +1,6 @@
 package si.fri.rso.storecatalog.api.v1.resources;
 
+import com.kumuluz.ee.cors.annotations.CrossOrigin;
 import com.kumuluz.ee.logs.cdi.Log;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
@@ -28,6 +29,7 @@ import java.util.logging.Logger;
 @Path("/stores")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@CrossOrigin(supportedMethods = "GET, POST, HEAD, OPTIONS, PUT")
 public class StoreCatalogResource {
 
     private Logger log = Logger.getLogger(StoreCatalogResource.class.getName());
