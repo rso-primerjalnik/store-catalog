@@ -1,5 +1,6 @@
 package si.fri.rso.storecatalog.graphql;
 
+import com.kumuluz.ee.cors.annotations.CrossOrigin;
 import com.kumuluz.ee.graphql.annotations.GraphQLClass;
 import com.kumuluz.ee.graphql.classes.Filter;
 import com.kumuluz.ee.graphql.classes.Pagination;
@@ -17,6 +18,7 @@ import javax.inject.Inject;
 
 @GraphQLClass
 @ApplicationScoped
+@CrossOrigin(allowOrigin = "*")
 public class StoreQueries {
 
     @Inject
