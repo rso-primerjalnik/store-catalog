@@ -54,6 +54,11 @@ kumuluzee:
       - store-catalog-services
       - store-catalog-models
       - store-catalog-lib
+  cors-filter:
+    servlet:
+      allow-origin: "*"
+      supported-methods: "GET, POST, PUT, PATCH, DELETE, OPTIONS, HEAD"
+      exposed-headers: "X-Total-Count"
 
 rest-properties:
   maintenance-mode: false
