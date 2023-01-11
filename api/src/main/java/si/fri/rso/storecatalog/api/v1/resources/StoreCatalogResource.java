@@ -55,6 +55,22 @@ public class StoreCatalogResource {
         return Response.status(Response.Status.OK).entity(stores).build();
     }
 
+    @Operation(description = "Get filtered stores.", summary = "Get filtered stores")
+    @APIResponses({
+            @APIResponse(
+                    responseCode = "200",
+                    description = "List of filtered stores",
+                    content = @Content(schema = @Schema(implementation = Store.class, type = SchemaType.ARRAY)),
+                    headers = {@Header(name = "X-Total-Count", description = "Number of stores in list")}
+            )
+    })
+    @GET
+    @Path("/filter")
+    public Response getFilteredProducts() {
+        List<Store> stores = storeBean.getFilteredStores(uriInfo);
+        return Response.ok(stores).header("X-Total-Count", stores.size()).build();
+    }
+
     @Operation(description = "Get store by id.", summary = "Get store by id")
     @APIResponses({
             @APIResponse(responseCode = "200",

@@ -24,7 +24,7 @@
 
         <kumuluzee.version>4.1.0</kumuluzee.version>
         <kumuluzee-cors.version>2.0.0</kumuluzee-cors.version>
-        <kumuluzee-rest.version>1.5.1</kumuluzee-rest.version>
+        <kumuluzee-rest.version>1.4.0</kumuluzee-rest.version>
         <kumuluzee-openapi-mp.version>1.4.0</kumuluzee-openapi-mp.version>
         <kumuluzee-config-mp.version>2.0.0</kumuluzee-config-mp.version>
         <kumuluzee-config.version>1.2.0</kumuluzee-config.version>

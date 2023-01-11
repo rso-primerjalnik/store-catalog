@@ -1,5 +1,7 @@
 package si.fri.rso.storecatalog.services.beans;
 
+import com.kumuluz.ee.rest.beans.QueryParameters;
+import com.kumuluz.ee.rest.utils.JPAUtils;
 import si.fri.rso.storecatalog.lib.Store;
 import si.fri.rso.storecatalog.models.converters.StoreConverter;
 import si.fri.rso.storecatalog.models.entities.StoreEntity;
@@ -9,6 +11,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.ws.rs.NotFoundException;
+import javax.ws.rs.core.UriInfo;
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -28,6 +31,14 @@ public class StoreBean {
         List<StoreEntity> resultList = query.getResultList();
 
         return resultList.stream().map(StoreConverter::toDto).collect(Collectors.toList());
+    }
+
+    public List<Store> getFilteredStores(UriInfo uriInfo) {
+        QueryParameters queryParameters = QueryParameters.query(uriInfo.getRequestUri().getQuery()).defaultOffset(0)
+                .build();
+
+        return JPAUtils.queryEntities(em, StoreEntity.class, queryParameters).stream()
+                .map(StoreConverter::toDto).collect(Collectors.toList());
     }
 
     public Store getStoreById(Integer id) {
