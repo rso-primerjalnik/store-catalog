@@ -23,6 +23,12 @@ kumuluzee:
     web-instrumentation:
       - name: store-catalog-endpoint
         url-pattern: /v1/stores/*
+  openapi-mp:
+    ui:
+      server-auto-config:
+        enabled: true
+        original-uri-check: true
+    servers: http://20.23.109.163/store-catalog/
   logs:
     config-file: '<?xml version="1.0" encoding="UTF-8"?>
                             <Configuration name="comments">
