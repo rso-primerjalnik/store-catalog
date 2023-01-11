@@ -14,6 +14,15 @@ kumuluzee:
       password: postgres
       pool:
         max-size: 1
+  cors-filter:
+    annotations:
+      my-resource:
+        allow-origin: "*"
+        allow-subdomains: true
+    servlet:
+      allow-origin: "*"
+      supported-methods: "GET, POST, PUT, PATCH, DELETE, OPTIONS, HEAD"
+      exposed-headers: "X-Total-Count"
   health:
     checks:
       data-source-health-check:
@@ -54,11 +63,6 @@ kumuluzee:
       - store-catalog-services
       - store-catalog-models
       - store-catalog-lib
-  cors-filter:
-    servlet:
-      allow-origin: "*"
-      supported-methods: "GET, POST, PUT, PATCH, DELETE, OPTIONS, HEAD"
-      exposed-headers: "X-Total-Count"
 
 rest-properties:
   maintenance-mode: false
